@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <color name="colorPrimary">#003c64</color>
+    <color name="colorPrimaryDark">#004d80</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="weburl">#999999</color>
+    <color name="faculty">#222222</color>
+</resources>

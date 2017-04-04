@@ -1,0 +1,32 @@
+{
+  "faculties": [
+    {
+      "faculty": "Fakultas Hukum",
+      "url": "hukum.ub.ac.id"
+    },
+    {
+      "faculty": "Fakultas Ekonomi & Bisnis",
+      "url": "feb.ub.ac.id"
+    },
+    {
+      "faculty": "Fakultas Ilmu Administrasi",
+      "url": "fia.ub.ac.id"
+    },
+    {
+      "faculty": "Fakultas Pertanian",
+      "url": "fp.ub.ac.id"
+    },
+    {
+      "faculty": "Fakultas Peternakan",
+      "url": "fapet.ub.ac.id"
+    },
+    {
+      "faculty": "Fakultas Teknik",
+      "url": "teknik.ub.ac.id"
+    },
+    {
+      "faculty": "Fakultas Kedokteran",
+      "url": "fk.ub.ac.id"
+    }
+  ]
+}
