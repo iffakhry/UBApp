@@ -36,8 +36,7 @@ public class ProfileActivity extends AppCompatActivity implements MapFragment.On
 //                        .setAction("Action", null).show();
             }
         });
-
-//      API MAPS  AIzaSyBFPfuPFIECAF1tcLhr2uVd-iIEi3O-CE0
+        
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
