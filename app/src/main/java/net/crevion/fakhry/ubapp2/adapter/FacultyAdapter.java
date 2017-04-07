@@ -48,17 +48,40 @@ public class FacultyAdapter extends BaseAdapter{
         return position;
     }
 
+    private static class ViewHolder{
+        private TextView facultyName;
+        private TextView webUrl;
+
+    }
+
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        View rowView = mInflater.inflate(R.layout.faculty_list_row, viewGroup, false);
-        TextView facultyName = (TextView) rowView.findViewById(R.id.faculty_name);
-        TextView webUrl = (TextView) rowView.findViewById(R.id.weburl);
+        ViewHolder holder;
+        if (view == null){
+            view = mInflater.inflate(R.layout.faculty_list_row, viewGroup, false);
+            holder = new ViewHolder();
+            holder.facultyName = (TextView) view.findViewById(R.id.faculty_name);
+            holder.webUrl = (TextView) view.findViewById(R.id.weburl);
+
+            view.setTag(holder);
+
+        }else{
+            holder = (ViewHolder) view.getTag();
+        }
 
         Faculty faculty = (Faculty) getItem(position);
-        facultyName.setText(faculty.getNama());
-        webUrl.setText(faculty.getWeburl());
+        holder.facultyName.setText(faculty.getNama());
+        holder.webUrl.setText(faculty.getWeburl());
 
-        return rowView;
+//        View rowView = mInflater.inflate(R.layout.faculty_list_row, viewGroup, false);
+//        TextView facultyName = (TextView) rowView.findViewById(R.id.faculty_name);
+//        TextView webUrl = (TextView) rowView.findViewById(R.id.weburl);
+//
+//        Faculty faculty = (Faculty) getItem(position);
+//        facultyName.setText(faculty.getNama());
+//        webUrl.setText(faculty.getWeburl());
+
+        return view;
     }
 
 

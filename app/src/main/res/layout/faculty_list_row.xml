@@ -2,13 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:focusable="true"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
     android:background="?android:attr/selectableItemBackground"
-    android:orientation="vertical"
-    android:descendantFocusability="blocksDescendants">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/faculty_name"
@@ -17,14 +15,20 @@
         android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
     <TextView
         android:id="@+id/weburl"
         android:layout_below="@id/faculty_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/weburl"/>
+        android:textColor="@color/weburl"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
     <ImageView
         android:id="@+id/item_info"
@@ -32,11 +36,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
     <View
         android:layout_below="@+id/weburl"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
-        android:background="#ACACAC"/>
+        android:background="#ACACAC"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 </RelativeLayout>
