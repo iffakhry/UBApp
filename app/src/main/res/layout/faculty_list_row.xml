@@ -6,12 +6,12 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
-    android:clickable="true"
     android:background="?android:attr/selectableItemBackground"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants">
 
     <TextView
-        android:id="@+id/faculty"
+        android:id="@+id/faculty_name"
         android:textColor="@color/faculty"
         android:textSize="16dp"
         android:textStyle="bold"
@@ -21,11 +21,18 @@
 
     <TextView
         android:id="@+id/weburl"
-        android:layout_below="@id/faculty"
+        android:layout_below="@id/faculty_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/weburl"/>
 
+    <ImageView
+        android:id="@+id/item_info"
+        android:src="@drawable/ic_chevron_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
     <View
         android:layout_below="@+id/weburl"
         android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 package net.crevion.fakhry.ubapp2.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,11 +13,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
+import net.crevion.fakhry.ubapp2.ProfileActivity;
 import net.crevion.fakhry.ubapp2.R;
 import net.crevion.fakhry.ubapp2.adapter.Faculty;
 import net.crevion.fakhry.ubapp2.adapter.FacultyAdapter;
@@ -43,6 +47,7 @@ public class HomeFragment extends Fragment {
     private List<Faculty> facultyList = new ArrayList<>();
     private RecyclerView recyclerView;
     private FacultyAdapter mAdapter;
+    private ListView facultyListView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -95,22 +100,36 @@ public class HomeFragment extends Fragment {
 //        return inflater.inflate(R.layout.fragment_home, container, false);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.faculty_recycler_view);
+//        recyclerView = (RecyclerView) view.findViewById(R.id.faculty_recycler_view);
+//
+//        mAdapter = new FacultyAdapter(facultyList);
+//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+//        recyclerView.setLayoutManager(mLayoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(mAdapter);
 
-        mAdapter = new FacultyAdapter(facultyList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+
+
+        facultyListView = (ListView) view.findViewById(R.id.faculty_list_view);
         prepareFacultyData();
+        mAdapter = new FacultyAdapter(getContext(), facultyList);
+        facultyListView.setAdapter(mAdapter);
 
         carouselView = (CarouselView) view.findViewById(R.id.carouselView);
         carouselView.setPageCount(bannerImages.length);
         carouselView.setImageListener(imageListener);
 
+        facultyListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Log.v("cekklik", "clicked "+position);
+            }
+        });
+
         return view;
 
     }
+
 
     private String loadJSONFromAssets(){
         String json = null;
@@ -138,10 +157,14 @@ public class HomeFragment extends Fragment {
                 Log.v("cekdetail", jsonObject.getString("faculty"));
                 String faculty_value = jsonObject.getString("faculty");
                 String url_value = jsonObject.getString("url");
+                String description_value = jsonObject.getString("description");
 
-                faculty = new Faculty(faculty_value, url_value);
+                faculty = new Faculty(faculty_value, url_value, description_value);
                 facultyList.add(faculty);
             }
+
+
+
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -186,6 +209,8 @@ public class HomeFragment extends Fragment {
         mListener = null;
     }
 
+
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -206,9 +231,6 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         getActivity().setTitle("Home");
-
-
-
     }
 
     ImageListener imageListener = new ImageListener() {

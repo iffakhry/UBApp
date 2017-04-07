@@ -5,15 +5,16 @@ package net.crevion.fakhry.ubapp2.adapter;
  */
 
 public class Faculty {
-    private String nama, weburl;
+    private String nama, weburl, description;
 
     public Faculty(){
 
     }
 
-    public Faculty(String nama, String weburl){
+    public Faculty(String nama, String weburl, String description){
         this.nama = nama;
         this.weburl = weburl;
+        this.description = description;
     }
 
     public String getNama(){
@@ -30,5 +31,13 @@ public class Faculty {
 
     public void setWeburl(String weburl){
         this.weburl = weburl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
