@@ -123,6 +123,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Log.v("cekklik", "clicked "+position);
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                intent.putExtra("position", position);
+                startActivity(intent);
                 //kirim posisi ke profilactivity melalui intent, nantinya digunakan untuk mengambil data json
             }
         });

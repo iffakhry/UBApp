@@ -14,13 +14,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.crevion.fakhry.ubapp2.WebActivity" >
-<WebView
+    <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
-    </RelativeLayout>
+        android:layout_height="match_parent"/>
+</RelativeLayout>
 <!--</LinearLayout>-->
 
 
